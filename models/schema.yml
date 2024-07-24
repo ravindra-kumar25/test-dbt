@@ -21,188 +21,102 @@ models:
           - not_null
           - unique
       - name: birthdate
-        description: "The birth date of the patient."
-      - name: deathdate
-        description: "The death date of the patient, if applicable."
-      - name: ssn
-        description: "The social security number of the patient."
-      - name: drivers
-        description: "The driver's license number of the patient."
-      - name: passport
-        description: "The passport number of the patient."
-      - name: prefix
-        description: "The prefix of the patient's name."
+        description: "The birthdate of the patient."
       - name: first_name
         description: "The first name of the patient."
       - name: last_name
         description: "The last name of the patient."
-      - name: suffix
-        description: "The suffix of the patient's name."
-      - name: maiden
-        description: "The maiden name of the patient."
-      - name: marital
-        description: "The marital status of the patient."
-      - name: race
-        description: "The race of the patient."
-      - name: ethnicity
-        description: "The ethnicity of the patient."
-      - name: gender
-        description: "The gender of the patient."
-      - name: birthplace
-        description: "The birthplace of the patient."
-      - name: address
-        description: "The address of the patient."
-      - name: city
-        description: "The city of the patient's address."
-      - name: state
-        description: "The state of the patient's address."
-      - name: county
-        description: "The county of the patient's address."
-      - name: zip
-        description: "The ZIP code of the patient's address."
-      - name: lat
-        description: "The latitude of the patient's address."
-      - name: lon
-        description: "The longitude of the patient's address."
-      - name: healthcare_expenses
-        description: "The healthcare expenses of the patient."
-      - name: healthcare_coverage
-        description: "The healthcare coverage of the patient."
-
-  - name: stg_immunizations
-    description: "Staging table for immunizations."
-    columns:
-      - name: date
-        description: "The date of the immunization."
-      - name: patient
-        description: "The unique identifier for the patient receiving the immunization."
-      - name: encounter
-        description: "The encounter associated with the immunization."
-      - name: code
-        description: "The code representing the immunization."
-      - name: description
-        description: "The description of the immunization."
-      - name: base_cost
-        description: "The base cost of the immunization."
-
-  - name: stg_careplans
-    description: "Staging table for care plans."
-    columns:
-      - name: careplan_id
-        description: "The unique identifier for the care plan."
-        tests:
-          - not_null
-          - unique
-      - name: start
-        description: "The start date of the care plan."
-      - name: stop
-        description: "The stop date of the care plan."
-      - name: patient
-        description: "The unique identifier for the patient."
-      - name: encounter
-        description: "The encounter associated with the care plan."
-      - name: code
-        description: "The code representing the care plan."
-      - name: description
-        description: "The description of the care plan."
-      - name: reasoncode
-        description: "The reason code for the care plan."
-      - name: reasondescription
-        description: "The reason description for the care plan."
+      # Add other columns as needed
 
   - name: stg_medications
     description: "Staging table for medications."
     columns:
-      - name: start
-        description: "The start date of the medication."
-      - name: stop
-        description: "The stop date of the medication."
       - name: patient
         description: "The unique identifier for the patient."
-      - name: payer
-        description: "The payer for the medication."
-      - name: encounter
-        description: "The encounter associated with the medication."
-      - name: code
-        description: "The code representing the medication."
+        tests:
+          - not_null
       - name: description
         description: "The description of the medication."
-      - name: base_cost
-        description: "The base cost of the medication."
-      - name: payer_coverage
-        description: "The payer coverage for the medication."
-      - name: dispenses
-        description: "The number of dispenses of the medication."
-      - name: totalcost
-        description: "The total cost of the medication."
-      - name: reasoncode
-        description: "The reason code for the medication."
+
+  - name: stg_immunizations
+    description: "Staging table for immunizations."
+    columns:
+      - name: patient
+        description: "The unique identifier for the patient."
+        tests:
+          - not_null
+      - name: description
+        description: "The description of the immunization."
 
   - name: stg_encounters
     description: "Staging table for encounters."
     columns:
-      - name: encounter_id
-        description: "The unique identifier for the encounter."
-        tests:
-          - not_null
-          - unique
-      - name: start
-        description: "The start date of the encounter."
-      - name: stop
-        description: "The stop date of the encounter."
       - name: patient
         description: "The unique identifier for the patient."
-      - name: organization
-        description: "The organization involved in the encounter."
-      - name: provider
-        description: "The provider involved in the encounter."
-      - name: payer
-        description: "The payer for the encounter."
-      - name: encounterclass
-        description: "The class of the encounter."
-      - name: code
-        description: "The code representing the encounter."
+        tests:
+          - not_null
       - name: description
         description: "The description of the encounter."
-      - name: base_encounter_cost
-        description: "The base cost of the encounter."
-      - name: total_claim_cost
-        description: "The total claim cost of the encounter."
-      - name: payer_coverage
-        description: "The payer coverage for the encounter."
-      - name: reasoncode
-        description: "The reason code for the encounter."
-      - name: reasondescription
-        description: "The reason description for the encounter."
 
   - name: stg_conditions
     description: "Staging table for conditions."
     columns:
-      - name: start
-        description: "The start date of the condition."
-      - name: stop
-        description: "The stop date of the condition."
       - name: patient
         description: "The unique identifier for the patient."
-      - name: encounter
-        description: "The encounter associated with the condition."
-      - name: code
-        description: "The code representing the condition."
+        tests:
+          - not_null
       - name: description
         description: "The description of the condition."
+
+  - name: stg_careplans
+    description: "Staging table for care plans."
+    columns:
+      - name: patient
+        description: "The unique identifier for the patient."
+        tests:
+          - not_null
+      - name: description
+        description: "The description of the care plan."
 
   - name: stg_allergies
     description: "Staging table for allergies."
     columns:
-      - name: start
-        description: "The start date of the allergy."
-      - name: stop
-        description: "The stop date of the allergy."
       - name: patient
         description: "The unique identifier for the patient."
-      - name: encounter
-        description: "The encounter associated with the allergy."
-      - name: code
-        description: "The code representing the allergy."
+        tests:
+          - not_null
       - name: description
         description: "The description of the allergy."
+
+  - name: patient_clinical_summary
+    description: "A summary of patient information combined with clinical data."
+    columns:
+      - name: patient_id
+        description: "The unique identifier for a patient."
+        tests:
+          - not_null
+          - unique
+      - name: first_name
+        description: "The first name of the patient."
+        tests:
+          - not_null
+      - name: last_name
+        description: "The last name of the patient."
+        tests:
+          - not_null
+      - name: birthdate
+        description: "The birthdate of the patient."
+      - name: gender
+        description: "The gender of the patient."
+      - name: encounter_description
+        description: "Description of the patient's encounters."
+      - name: medication_description
+        description: "Description of the patient's medications."
+      - name: immunization_description
+        description: "Description of the patient's immunizations."
+      - name: condition_description
+        description: "Description of the patient's conditions."
+      - name: careplan_description
+        description: "Description of the patient's care plans."
+      - name: allergy_description
+        description: "Description of the patient's allergies."

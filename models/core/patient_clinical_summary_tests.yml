@@ -1,0 +1,70 @@
+version: 2
+
+models:
+  - name: patient_clinical_summary
+    description: "A summary of patient information combined with clinical data."
+    columns:
+      - name: patient_id
+        description: "The unique identifier for a patient."
+        tests:
+          - not_null
+          - unique
+      - name: first_name
+        description: "The first name of the patient."
+        tests:
+          - not_null
+      - name: last_name
+        description: "The last name of the patient."
+        tests:
+          - not_null
+      - name: birthdate
+        description: "The birthdate of the patient."
+      - name: gender
+        description: "The gender of the patient."
+      - name: encounter_description
+        description: "Description of the patient's encounters."
+      - name: medication_description
+        description: "Description of the patient's medications."
+      - name: immunization_description
+        description: "Description of the patient's immunizations."
+      - name: condition_description
+        description: "Description of the patient's conditions."
+      - name: careplan_description
+        description: "Description of the patient's care plans."
+      - name: allergy_description
+        description: "Description of the patient's allergies."
+version: 2
+
+models:
+  - name: patient_clinical_summary
+    description: "A summary of patient information combined with clinical data."
+    columns:
+      - name: patient_id
+        description: "The unique identifier for a patient."
+        tests:
+          - not_null
+          - unique
+      - name: first_name
+        description: "The first name of the patient."
+        tests:
+          - not_null
+      - name: last_name
+        description: "The last name of the patient."
+        tests:
+          - not_null
+      - name: birthdate
+        description: "The birthdate of the patient."
+      - name: gender
+        description: "The gender of the patient."
+      - name: encounter_description
+        description: "Description of the patient's encounters."
+      - name: medication_description
+        description: "Description of the patient's medications."
+      - name: immunization_description
+        description: "Description of the patient's immunizations."
+      - name: condition_description
+        description: "Description of the patient's conditions."
+      - name: careplan_description
+        description: "Description of the patient's care plans."
+      - name: allergy_description
+        description: "Description of the patient's allergies."
