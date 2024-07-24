@@ -88,8 +88,56 @@ models:
       - name: description
         description: "The description of the allergy."
 
-  - name: patient_clinical_summary
-    description: "A summary of patient information combined with clinical data."
+  - name: patient_medication_summary
+    description: "Summary of patient medications."
+    columns:
+      - name: patient
+        description: "The unique identifier for a patient."
+        tests:
+          - not_null
+      - name: medication_description
+        description: "The description of the medication."
+      - name: medication_count
+        description: "The number of times the medication was prescribed."
+      - name: total_medication_cost
+        description: "The total cost of the medication."
+
+  - name: patient_encounter_summary
+    description: "Summary of patient encounters."
+    columns:
+      - name: patient
+        description: "The unique identifier for a patient."
+        tests:
+          - not_null
+      - name: encounter_count
+        description: "The number of encounters the patient had."
+      - name: total_encounter_cost
+        description: "The total base cost of the encounters."
+      - name: total_claim_cost
+        description: "The total claim cost of the encounters."
+
+  - name: patient_condition_summary
+    description: "Summary of patient conditions."
+    columns:
+      - name: patient
+        description: "The unique identifier for a patient."
+        tests:
+          - not_null
+      - name: condition_count
+        description: "The number of conditions the patient has."
+
+  - name: patient_careplan_summary
+    description: "Summary of patient care plans."
+    columns:
+      - name: patient
+        description: "The unique identifier for a patient."
+        tests:
+          - not_null
+      - name: careplan_count
+        description: "The number of care plans the patient has."
+
+  - name: comprehensive_patient_summary
+    description: "Comprehensive summary of patient information, including medications, encounters, conditions, and care plans."
     columns:
       - name: patient_id
         description: "The unique identifier for a patient."
@@ -106,17 +154,4 @@ models:
           - not_null
       - name: birthdate
         description: "The birthdate of the patient."
-      - name: gender
-        description: "The gender of the patient."
-      - name: encounter_description
-        description: "Description of the patient's encounters."
-      - name: medication_description
-        description: "Description of the patient's medications."
-      - name: immunization_description
-        description: "Description of the patient's immunizations."
-      - name: condition_description
-        description: "Description of the patient's conditions."
-      - name: careplan_description
-        description: "Description of the patient's care plans."
-      - name: allergy_description
-        description: "Description of the patient's allergies."
+     
